@@ -1,4 +1,6 @@
 const { Schema, Types } = require("mongoose");
+const luxon = require("luxon");
+
 const reactionSchema = new Schema(
   {
     reactionId: {
@@ -10,10 +12,10 @@ const reactionSchema = new Schema(
       required: true,
       maxlength: 280,
     },
-    //   TODO: set getter method to format timestamp on query
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (createdAtVal) => luxon(createdAtVal).toLocaleString(),
     },
   },
   {

@@ -2,10 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = newSchema(
   {
-    // TODO: make unique and trimmed
-    username: { type: String, required: true },
-    //   TODO: make unique and email validated
-    email: { type: String, required: true },
+    username: { type: String, required: true, unique: true, trim: true },
+    email: { type: String, required: true, match: /.+\@.+\..+/, unique: true },
     thoughts: [
       {
         type: Schema.Types.ObjectId,

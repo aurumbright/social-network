@@ -1,22 +1,33 @@
 const { Schema, model } = require("mongoose");
 const Reaction = require("./Reaction");
+const luxon = require("luxon");
 
 const thoughtSchema = new Schema(
   {
     thoughtText: { type: String, required: true, maxlength: 280 },
-    // TODO: use a getter method to format the timestamp on query
-    createdAt: { type: Date, default: Date.now },
-    // TODO: make unique and trimmed
-    username: { type: String, required: true },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (createdAtVal) => luxon(createdAtVal).toLocaleString(),
+    },
+    username: { type: String, required: true, unique: true, trim: true },
     reactions: [Reaction],
   },
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
     id: false,
   }
 );
+
+thoughtSchema
+  .virtual("reactionCount")
+  // Getter
+  .get(function () {
+    return this.reactions.length;
+  });
 
 const Thought = model("thought", thoughtSchema);
 
