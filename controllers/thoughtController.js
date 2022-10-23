@@ -9,7 +9,7 @@ module.exports = {
   },
   // GET a single thought
   getSingleThought(req, res) {
-    Thought.findOne({ _id: req.params.thoughtID })
+    Thought.findOne({ _id: req.params.thoughtId })
       .select("-__v")
       .then((thought) =>
         !thought
@@ -34,7 +34,7 @@ module.exports = {
   // PUT / update a thought based on id
   updateThought(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtID },
+      { _id: req.params.thoughtId },
       { $set: req.body },
       { runValidators: true, new: true }
     )
@@ -60,8 +60,8 @@ module.exports = {
   },
   addReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtID },
-      { $addToSet: { reactions: req.body } },
+      { _id: req.params.thoughtId },
+      { $push: { reactions: req.body } },
       { runValidators: true, new: true }
     )
       .then((thought) =>
@@ -76,7 +76,7 @@ module.exports = {
   },
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtID },
+      { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     )

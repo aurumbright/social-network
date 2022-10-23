@@ -19,7 +19,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtVal) => luxon(createdAtVal).toLocaleString(),
+      get: (createdAtVal) => createdAtVal.toLocaleString(),
     },
   },
   {
