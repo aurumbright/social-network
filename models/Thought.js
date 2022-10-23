@@ -8,7 +8,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtVal) => luxon(createdAtVal).toLocaleString(),
+      get: (createdAtVal) => createdAtVal.toLocaleString(),
     },
     username: { type: String, required: true, unique: true, trim: true },
     reactions: [Reaction],
