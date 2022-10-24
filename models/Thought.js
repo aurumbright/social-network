@@ -10,7 +10,7 @@ const thoughtSchema = new Schema(
       default: Date.now,
       get: (createdAtVal) => createdAtVal.toLocaleString(),
     },
-    username: { type: String, required: true, unique: true, trim: true },
+    username: { type: String, required: true, trim: true },
     reactions: [Reaction],
   },
   {
