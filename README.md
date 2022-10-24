@@ -6,7 +6,7 @@ This is an API for a social network where users can share their thoughts, react 
 
 ## Mock-Up
 
-The walkthrough video shows the GET, POST, PUT, and DELETE routes for Users, Thoughts, Friends, and Reaction. [Click here to view the full video.](https://drive.google.com/file/d/1QTSsnMTXvjIFKHxhCGqBr45qsNvLak4i/view?usp=sharing) The following gif shows how to initialize the API and the first GET route.
+The walkthrough video shows the GET, POST, PUT, and DELETE routes for Users, Thoughts, Friends, and Reaction. [Click here to view the full video as a webm.](https://drive.google.com/file/d/1QTSsnMTXvjIFKHxhCGqBr45qsNvLak4i/view?usp=sharing) [Click here to view the video as an MP4.](https://drive.google.com/file/d/1C-VuzcTqJfk2YGoRFFpD9-1MbYiua8Ml/view?usp=sharing) The following gif shows how to initialize the API and the first GET route.
 
 ![A short gif showing the application being tested in Insomnia.](./Assets/social-network-api.gif)
 
